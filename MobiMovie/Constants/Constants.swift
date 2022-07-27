@@ -7,8 +7,5 @@
 
 import UIKit
 
-struct C {
-    
 
 
-}
