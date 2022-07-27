@@ -2,12 +2,13 @@
 # platform :ios, '9.0'
 
 target 'MobiMovie' do
-  # Comment the next line if you don't want to use dynamic frameworks
+  
   use_frameworks!
 
   # Pods for MobiMovie
 
-pod 'Alamofire', '~> 4.4'
+pod 'Alamofire'
 pod 'SwiftyJSON'
+
 
 end
