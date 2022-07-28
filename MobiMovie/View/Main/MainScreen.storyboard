@@ -15,13 +15,45 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gxg-L5-TsT">
+                                <rect key="frame" x="132" y="136" width="149" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2D-xb-S0N">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="310"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="H2D-xb-S0N" secondAttribute="height" multiplier="207:155" id="onE-jk-dTA"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="VKm-2V-I6O"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="nSF-c2-hPg"/>
+                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bqg-3w-EZC">
+                                <rect key="frame" x="0.0" y="310" width="414" height="586"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Bqg-3w-EZC" secondAttribute="bottom" id="0A6-rG-XHq"/>
+                            <constraint firstItem="Bqg-3w-EZC" firstAttribute="top" secondItem="H2D-xb-S0N" secondAttribute="bottom" id="S24-og-sAW"/>
+                            <constraint firstItem="H2D-xb-S0N" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Tz9-xT-NgQ"/>
+                            <constraint firstItem="H2D-xb-S0N" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="YGj-Wa-wGC"/>
+                            <constraint firstItem="Bqg-3w-EZC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bar-YG-IFc"/>
+                            <constraint firstItem="H2D-xb-S0N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="r2n-pR-FXc"/>
+                            <constraint firstItem="Bqg-3w-EZC" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="uGd-Zb-k2O"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="gxg-L5-TsT" id="uDL-SR-t73"/>
+                        <outlet property="scrollView" destination="H2D-xb-S0N" id="vGV-O8-jos"/>
+                        <outlet property="tableView" destination="Bqg-3w-EZC" id="xhj-kj-JyZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="116"/>
+            <point key="canvasLocation" x="-391.304347826087" y="95.758928571428569"/>
         </scene>
     </scenes>
     <resources>

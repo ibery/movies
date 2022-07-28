@@ -7,14 +7,14 @@
 
 import UIKit
 
-struct MovieModel {
-    var title : String
-    var release_date : String
-    var overview : String
-    var backdrop_path : String
-    var id : Int
-    var vote_average : Double
+struct MovieModel:Decodable {
+    var title : String?
+    var release_date : String?
+    var overview : String?
+    var backdrop_path : String?
+    var id : Int?
+    var vote_average : Double?
    
-    
+
     
 }
