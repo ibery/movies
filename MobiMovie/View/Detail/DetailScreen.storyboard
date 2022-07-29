@@ -92,6 +92,13 @@
                             <constraint firstItem="Xhe-L5-dyA" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="qZL-lI-fjJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="dr4-sV-aaG" id="x3T-XN-P1J"/>
+                        <outlet property="imageView" destination="Xhe-L5-dyA" id="imz-wA-bA5"/>
+                        <outlet property="overviewLabel" destination="oYi-ww-Ad4" id="aqB-D6-6Zl"/>
+                        <outlet property="titleLabel" destination="muD-CX-V1D" id="YXl-jH-Pdf"/>
+                        <outlet property="voteAverageLabel" destination="E4l-7W-Wmu" id="mQ8-Tc-XTg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

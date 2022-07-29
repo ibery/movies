@@ -35,4 +35,10 @@ class BaseViewController : UIViewController  {
     
     //MARK: - Methods
     
+    func getViewController<T>(fromStoryboard storyboard: Storyboard, type t: T.Type) -> T? {
+        guard let viewController = storyboard.storyboard.instantiateInitialViewController() as? T  else { return nil }
+        
+        return viewController
+    }
+    
 }

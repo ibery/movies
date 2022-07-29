@@ -23,6 +23,7 @@ class SplashViewController : BaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

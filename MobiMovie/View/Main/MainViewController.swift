@@ -25,10 +25,12 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
        
-        //        let storyboard = UIStoryboard(name: "DetailScreen" , bundle: nil)
-        //        guard let viewController = storyboard.instantiateInitialViewController() else { return }
-        //        self.navigationController?.show(viewController, sender: nil)
+//                let storyboard = UIStoryboard(name: "DetailScreen" , bundle: nil)
+//                guard let viewController = storyboard.instantiateInitialViewController() else { return }
+//                self.navigationController?.show(viewController, sender: nil)
         
         getUpComingData()
         getNowPlayingdata()
@@ -46,6 +48,7 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -78,7 +81,13 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     
     // tap gesture recognizer
     @objc func imageClick() {
-        print(movieNowPlayingListModel.movieAtIndex(Int(scrollView.contentOffset.x / scrollView.frame.size.width)).id)
+        let id = movieNowPlayingListModel.movieAtIndex(Int(scrollView.contentOffset.x / scrollView.frame.size.width)).id
+       
+        
+        guard let viewController = self.getViewController(fromStoryboard: .detail, type: DetailViewController.self) else { return }
+            viewController.movieId = id
+            self.navigationController?.show(viewController, sender: nil)
+        
         
     }
     
@@ -116,14 +125,9 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
                 DispatchQueue.main.async {
                     self.setupScreens()
                 }
-
             }
-            
         }
-        
     }
-    
-    
     // up coming movies
     func getUpComingData(){
         
@@ -139,23 +143,6 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
             }
         }
     }
-    
-    // details movie
-    
-    func getDetailData(url : String){
-        
-        let url = URL(string: url)!
-        
-        WebService().downloadMovieData(url: url) { movieList in
-            if let movieList = movieList {
-                self.movieListModel = MovieListModel(movieList: movieList)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
 }
 
 
@@ -182,15 +169,13 @@ extension MainViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movieId = self.movieListModel.movieAtIndex(indexPath.row)
-        print("movie id \(movieId.id)")
+        let movieid = self.movieListModel.movieAtIndex(indexPath.row)
+       
         
-        
-        
-        
-
-        
-        
+        guard let viewController = self.getViewController(fromStoryboard: .detail, type: DetailViewController.self) else { return }
+            viewController.movieId = movieid.id
+            self.navigationController?.show(viewController, sender: nil)
+     
     }
     
 }
