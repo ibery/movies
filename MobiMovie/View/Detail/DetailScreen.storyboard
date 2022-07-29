@@ -57,17 +57,21 @@
                                     <constraint firstAttribute="width" secondItem="z8p-zu-JIj" secondAttribute="height" multiplier="209:35" id="Vvj-qJ-XWW"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="59S-at-9av">
-                                <rect key="frame" x="33" y="371" width="230" height="69"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="59S-at-9av">
+                                <rect key="frame" x="33" y="371" width="348" height="202.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moonrise Kingdom " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muD-CX-V1D">
-                                        <rect key="frame" x="0.0" y="0.0" width="230" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="348" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="DCK-MO-D7i"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ellerimi bağladılar gözlerimi da" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYi-ww-Ad4">
-                                        <rect key="frame" x="0.0" y="48.5" width="230" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYi-ww-Ad4">
+                                        <rect key="frame" x="0.0" y="40" width="348" height="162.5"/>
+                                        <string key="text">ellerimi bdafdfadsfadsfadsfdsafadsfdsfadfadsfadsfasdfadsfasdfağladılar gözlerimi daellerimi bdafdfadsfadsfadsfdsafadsfd        self.navigationController?.show(viewController, sender: nil)sfdsafadsfdsfadfadsfadsfasdfadsfasdfağladılar gözlerimi da</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -80,6 +84,7 @@
                         <constraints>
                             <constraint firstItem="Xhe-L5-dyA" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="18e-Yy-K2d"/>
                             <constraint firstItem="z8p-zu-JIj" firstAttribute="top" secondItem="Xhe-L5-dyA" secondAttribute="bottom" constant="8" symbolic="YES" id="5zM-U2-dsn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="59S-at-9av" secondAttribute="trailing" constant="33" id="6X0-9Q-sUz"/>
                             <constraint firstItem="z8p-zu-JIj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="33" id="7i7-42-mjs"/>
                             <constraint firstItem="59S-at-9av" firstAttribute="top" secondItem="z8p-zu-JIj" secondAttribute="bottom" constant="16" id="A5O-Y4-98E"/>
                             <constraint firstItem="59S-at-9av" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="33" id="KKN-94-1Cz"/>

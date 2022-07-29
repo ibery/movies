@@ -11,7 +11,8 @@ public struct C {
     
 
 
- let api = ApiKey()
+    let api = ApiKey()
+    let imageUrl = "https://image.tmdb.org/t/p/w1280"
 
 var nowPlaying : String {
     return "https://api.themoviedb.org/3/movie/now_playing?api_key=\(api.key)&language=en-US&page=1"

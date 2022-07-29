@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct MovieModel:Decodable {
+struct MovieModel:Codable {
     var title : String?
     var release_date : String?
     var overview : String?
