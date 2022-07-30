@@ -9,21 +9,12 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-
-
 class WebService {
     
     // MARK: - Properties
-    var movies = [MovieModel]()
-    var c = C()
-    //  var movie = MovieModel()
-    
-    
+    private var movies = [MovieModel]()
+
     // MARK: - Initialierz
-    
-    // With Alamofire
-    
-    
     
     
     // MARK: - Setup
@@ -38,9 +29,7 @@ class WebService {
         AF.request(url, method: .get).validate().responseJSON{ response in
             switch response.result{
             case.success(let value):
-                
                 let json = JSON(value)
-                
                 for index in 0...json.count{
                     let newMovies = MovieModel(title: json["results"][index]["title"].stringValue,
                                                release_date: json["results"][index]["release_date"].stringValue,
@@ -63,7 +52,6 @@ class WebService {
         AF.request(url, method: .get).validate().responseJSON{ response in
             switch response.result{
             case.success(let value):
-                
                 let json = JSON(value)
                     let newMovies = MovieModel(title: json["title"].stringValue,
                                                release_date: json["release_date"].stringValue,
@@ -72,15 +60,12 @@ class WebService {
                                                id: json["id"].intValue,
                                                vote_average: json["vote_average"].doubleValue)
                 completion(newMovies)
-              
             case .failure(_):
                 print("Error !")
             }
         }
     }
-    
-    
-    
+  
 }
 
 

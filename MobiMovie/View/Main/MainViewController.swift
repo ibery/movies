@@ -10,50 +10,36 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     private var movieListModel : MovieListModel!
     private var movieNowPlayingListModel : MovieListModel!
     var moviesName : [String] = []
-    
+    var  frame = CGRect .zero
     
     
     // MARK: - Properties
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var nowComingTitleLabel: UILabel!
+    @IBOutlet var nowComingOverviewLabel: UILabel!
+    
+    
 
-    var  frame = CGRect .zero
-    
-    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-       
-//                let storyboard = UIStoryboard(name: "DetailScreen" , bundle: nil)
-//                guard let viewController = storyboard.instantiateInitialViewController() else { return }
-//                self.navigationController?.show(viewController, sender: nil)
         
         getUpComingData()
         getNowPlayingdata()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        self.tableView.register(UINib(nibName: "MainTableViewCell", bundle: nil), forCellReuseIdentifier: "mainCell")
-        
+        self.tableView.register(UINib(nibName: c.tableViewCell, bundle: nil), forCellReuseIdentifier: c.cellIdentifier)
         pageControl.numberOfPages = moviesName.count
-        //  setupScreens()
         scrollView.delegate = self
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        
     }
-    
-    
-    
+
     // MARK: - Setup
     func setupScreens() {
         for index in 0..<moviesName.count {
@@ -65,14 +51,12 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
             
             let recognizer = UITapGestureRecognizer(target: self, action: #selector(imageClick))
             let movieViewModel = movieNowPlayingListModel.movieAtIndex(index)
- 
+            nowComingTitleLabel.text = movieViewModel.title
+            nowComingOverviewLabel.text = movieViewModel.overview
             let url = URL(string: self.c.imageUrl+movieViewModel.backdrop_path)
             let data = try? Data(contentsOf: url!)
             imgView.image =  UIImage(data: data!)
             imgView.addGestureRecognizer(recognizer)
-            
-            
-            
             self.scrollView.addSubview(imgView)
         }
         scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(moviesName.count)), height: scrollView.frame.size.height)
@@ -82,28 +66,25 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     // tap gesture recognizer
     @objc func imageClick() {
         let id = movieNowPlayingListModel.movieAtIndex(Int(scrollView.contentOffset.x / scrollView.frame.size.width)).id
-       
-        
+ 
         guard let viewController = self.getViewController(fromStoryboard: .detail, type: DetailViewController.self) else { return }
             viewController.movieId = id
             self.navigationController?.show(viewController, sender: nil)
-        
-        
+ 
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
+  //      pageControl.frame = CGRect(x: 0, y: 0, width: view.frame.size.width / 2, height: view.frame.size.height / 2)
         
     }
-    
-    
+
     // MARK: - Actions
     
     
     //MARK: - Methods
-    
-    
+     
     
     // now playing movies
     func getNowPlayingdata(){
@@ -118,8 +99,7 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
             if let nowPlayingMovieList = nowPlayingMovieList {
                 for mv in nowPlayingMovieList{
                     self.moviesName.append(mv.backdrop_path ?? "")
-                    
-                    
+      
                 }
                 
                 DispatchQueue.main.async {
@@ -132,11 +112,9 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     func getUpComingData(){
         
         let url = URL(string: c.upComing)!
-        
         WebService().downloadMovieData(url: url) { movieList in
             if let movieList = movieList {
                 self.movieListModel = MovieListModel(movieList: movieList)
-                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -144,7 +122,6 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
         }
     }
 }
-
 
 extension MainViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -154,7 +131,7 @@ extension MainViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell" , for:indexPath) as! MainTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: c.cellIdentifier , for:indexPath) as! MainTableViewCell
         let movieViewModel = self.movieListModel.movieAtIndex(indexPath.row)
         
         cell.filmTitle.text = movieViewModel.title
@@ -170,12 +147,10 @@ extension MainViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieid = self.movieListModel.movieAtIndex(indexPath.row)
-       
-        
+  
         guard let viewController = self.getViewController(fromStoryboard: .detail, type: DetailViewController.self) else { return }
             viewController.movieId = movieid.id
             self.navigationController?.show(viewController, sender: nil)
-     
     }
     
 }

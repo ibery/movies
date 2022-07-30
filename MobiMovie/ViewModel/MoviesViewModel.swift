@@ -11,7 +11,7 @@ struct MovieListModel {
     let movieList : [MovieModel]
     
     func numberOfRowInSection () -> Int {
-       
+        
         return self.movieList.count
     }
     

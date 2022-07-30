@@ -14,7 +14,5 @@ struct MovieModel:Codable {
     var backdrop_path : String?
     var id : Int?
     var vote_average : Double?
-   
-
-    
+ 
 }

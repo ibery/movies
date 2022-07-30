@@ -87,6 +87,7 @@
                 <outlet property="arrowIcon" destination="ZEP-jb-YS6" id="vE8-s0-9UO"/>
                 <outlet property="filmDate" destination="Ese-wL-mTp" id="lhj-Ta-job"/>
                 <outlet property="filmOverview" destination="K31-V1-d99" id="m5a-ze-Xwg"/>
+                <outlet property="filmTitle" destination="EPu-fD-nf0" id="8VW-rR-byw"/>
                 <outlet property="movieImage" destination="m5g-Ha-CF8" id="JK7-Ld-mAG"/>
             </connections>
             <point key="canvasLocation" x="40.579710144927539" y="-64.620535714285708"/>

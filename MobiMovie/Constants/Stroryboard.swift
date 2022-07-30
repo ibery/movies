@@ -18,7 +18,6 @@ enum Storyboard : Int {
             return "Main"
         case .detail:
             return "Detail"
-            
         }
     }
     
