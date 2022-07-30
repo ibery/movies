@@ -32,10 +32,9 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.register(UINib(nibName: c.tableViewCell, bundle: nil), forCellReuseIdentifier: c.cellIdentifier)
-
         scrollView.delegate = self
         pageControl.numberOfPages = moviesName.count
-    //    setupScreens()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,12 +50,12 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
             frame.size = scrollView.frame.size
             let imgView = UIImageView(frame: frame)
             imgView.isUserInteractionEnabled = true
-            
             let recognizer = UITapGestureRecognizer(target: self, action: #selector(imageClick))
             let movieViewModel = movieNowPlayingListModel.movieAtIndex(index)
             nowComingTitleLabel.text = movieViewModel.title
             nowComingOverviewLabel.text = movieViewModel.overview
             let url = URL(string: self.c.imageUrl+movieViewModel.backdrop_path)
+            
             let data = try? Data(contentsOf: url!)
             imgView.image =  UIImage(data: data!)
             imgView.addGestureRecognizer(recognizer)
@@ -65,16 +64,17 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
         }
         scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(moviesName.count)), height: scrollView.frame.size.height)
         scrollView.delegate = self
+        pageControl.numberOfPages = moviesName.count
+        nowComingTitleLabel.text = movieNowPlayingListModel.movieAtIndex(0).title
+        nowComingOverviewLabel.text = movieNowPlayingListModel.movieAtIndex(0).overview
    
     }
     // tap gesture recognizer
     @objc func imageClick() {
         let id = movieNowPlayingListModel.movieAtIndex(Int(scrollView.contentOffset.x / scrollView.frame.size.width)).id
- 
         guard let viewController = self.getViewController(fromStoryboard: .detail, type: DetailViewController.self) else { return }
             viewController.movieId = id
             self.navigationController?.show(viewController, sender: nil)
- 
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -132,7 +132,6 @@ extension MainViewController : UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: c.cellIdentifier , for:indexPath) as! MainTableViewCell
         let movieViewModel = self.movieListModel.movieAtIndex(indexPath.row)
-        
         cell.filmTitle.text = movieViewModel.title
         cell.filmOverview.text = movieViewModel.overview
         cell.filmDate.text = movieViewModel.release_date
@@ -140,7 +139,7 @@ extension MainViewController : UITableViewDataSource {
         let data = try? Data(contentsOf: url!)
         cell.movieImage.image =  UIImage(data: data!)
         cell.arrowIcon.image = UIImage(named: "Arrow Icon")
-        
+       
         return cell
     }
     
@@ -156,7 +155,7 @@ extension MainViewController : UITableViewDataSource {
 
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height/4.2
+        return tableView.frame.height/5
     }
     
     
