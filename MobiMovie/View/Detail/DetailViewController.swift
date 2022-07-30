@@ -27,7 +27,7 @@ class DetailViewController : BaseViewController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDetailData(url: c.detailsUrl(movieId: movieId))
+        getDetailData(url: C.detailsUrl(movieId: movieId))
         self.navigationController?.navigationBar.isHidden = false
         
     }
@@ -62,7 +62,7 @@ class DetailViewController : BaseViewController  {
         self.dateLabel.text = movie.release_date
         self.voteAverageLabel.text = "\(movie.vote_average) / 10"
         self.overviewLabel.text = movie.overview
-        let url = URL(string: self.c.imageUrl+movie.backdrop_path!)
+        let url = URL(string: C.imageUrl+movie.backdrop_path!)
         let data = try? Data(contentsOf: url!)
         self.imageView.image = UIImage(data: data!)
     }

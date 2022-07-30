@@ -42,8 +42,9 @@ class WebService {
                 }
                 completion(self.movies)
   
-            case .failure(_):
-                print("Error !")
+            case .failure(let error):
+                print("Error ! \(error.localizedDescription)")
+                UIWindow.showAlert(title: C.Error.title, message: C.Error.overView)
             }
         }
     }
@@ -60,8 +61,9 @@ class WebService {
                                                id: json["id"].intValue,
                                                vote_average: json["vote_average"].doubleValue)
                 completion(newMovies)
-            case .failure(_):
-                print("Error !")
+            case .failure(let error):
+                print("Error ! \(error.localizedDescription)")
+                UIWindow.showAlert(title: C.Error.title, message: C.Error.overView)
             }
         }
     }

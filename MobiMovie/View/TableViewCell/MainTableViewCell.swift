@@ -15,7 +15,6 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet var filmOverview: UILabel!
     @IBOutlet var arrowIcon: UIImageView!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -26,6 +26,7 @@
 		07B09DB02891624A0065F11C /* ApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B09DAF2891624A0065F11C /* ApiKey.swift */; };
 		07CF277D28927057004B5732 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF277B28927057004B5732 /* MainTableViewCell.swift */; };
 		07CF277E28927057004B5732 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07CF277C28927057004B5732 /* MainTableViewCell.xib */; };
+		07F437112895E39700123F94 /* Utilites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F437102895E39700123F94 /* Utilites.swift */; };
 		9DF3CFEE402E01B8B611295A /* Pods_MobiMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2045A2297A886EE3F2B28D2 /* Pods_MobiMovie.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		07B09DAF2891624A0065F11C /* ApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKey.swift; sourceTree = "<group>"; };
 		07CF277B28927057004B5732 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		07CF277C28927057004B5732 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		07F437102895E39700123F94 /* Utilites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilites.swift; sourceTree = "<group>"; };
 		83B4C2FFFCDEE972D472BBB2 /* Pods-MobiMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobiMovie.release.xcconfig"; path = "Target Support Files/Pods-MobiMovie/Pods-MobiMovie.release.xcconfig"; sourceTree = "<group>"; };
 		A2045A2297A886EE3F2B28D2 /* Pods_MobiMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobiMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41608399B8AFDD5F64AE44D /* Pods-MobiMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobiMovie.debug.xcconfig"; path = "Target Support Files/Pods-MobiMovie/Pods-MobiMovie.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				07B09DA4289159920065F11C /* Constants.swift */,
 				07B09DA6289159F40065F11C /* Stroryboard.swift */,
 				07B09DAF2891624A0065F11C /* ApiKey.swift */,
+				07F437102895E39700123F94 /* Utilites.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				07B09DA7289159F40065F11C /* Stroryboard.swift in Sources */,
 				074A0C8A289135A90095EA78 /* MoviesViewModel.swift in Sources */,
 				074A0C8D289139DD0095EA78 /* WebServices.swift in Sources */,
+				07F437112895E39700123F94 /* Utilites.swift in Sources */,
 				074A0C6628912D5A0095EA78 /* AppDelegate.swift in Sources */,
 				074A0C882891358B0095EA78 /* MovieModel.swift in Sources */,
 				074A0C6828912D5A0095EA78 /* SceneDelegate.swift in Sources */,

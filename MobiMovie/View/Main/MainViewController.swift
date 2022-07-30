@@ -31,7 +31,7 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
         getNowPlayingdata()
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.register(UINib(nibName: c.tableViewCell, bundle: nil), forCellReuseIdentifier: c.cellIdentifier)
+        self.tableView.register(UINib(nibName: C.tableViewCell, bundle: nil), forCellReuseIdentifier: C.cellIdentifier)
         scrollView.delegate = self
         pageControl.numberOfPages = moviesName.count
 
@@ -54,7 +54,7 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
             let movieViewModel = movieNowPlayingListModel.movieAtIndex(index)
             nowComingTitleLabel.text = movieViewModel.title
             nowComingOverviewLabel.text = movieViewModel.overview
-            let url = URL(string: self.c.imageUrl+movieViewModel.backdrop_path)
+            let url = URL(string: C.imageUrl+movieViewModel.backdrop_path)
             
             let data = try? Data(contentsOf: url!)
             imgView.image =  UIImage(data: data!)
@@ -94,7 +94,7 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     // now playing movies
     func getNowPlayingdata(){
         
-        let url = URL(string: c.nowPlaying)!
+        let url = URL(string: C.nowPlaying)!
         WebService().downloadMovieData(url: url) { nowPlayingMovieList in
             if let nowPlayingMovieList = nowPlayingMovieList {
                 self.movieNowPlayingListModel = MovieListModel (movieList : nowPlayingMovieList )
@@ -110,7 +110,7 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     // up coming movies
     func getUpComingData(){
         
-        let url = URL(string: c.upComing)!
+        let url = URL(string: C.upComing)!
         WebService().downloadMovieData(url: url) { movieList in
             if let movieList = movieList {
                 self.movieListModel = MovieListModel(movieList: movieList)
@@ -130,12 +130,12 @@ extension MainViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: c.cellIdentifier , for:indexPath) as! MainTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: C.cellIdentifier , for:indexPath) as! MainTableViewCell
         let movieViewModel = self.movieListModel.movieAtIndex(indexPath.row)
         cell.filmTitle.text = movieViewModel.title
         cell.filmOverview.text = movieViewModel.overview
         cell.filmDate.text = movieViewModel.release_date
-        let url = URL(string: c.imageUrl+movieViewModel.backdrop_path)
+        let url = URL(string: C.imageUrl+movieViewModel.backdrop_path)
         let data = try? Data(contentsOf: url!)
         cell.movieImage.image =  UIImage(data: data!)
         cell.arrowIcon.image = UIImage(named: "Arrow Icon")
@@ -155,7 +155,9 @@ extension MainViewController : UITableViewDataSource {
 
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height/5
+        let rowHeight: CGFloat = 140.0
+        return rowHeight
+        //tableView.frame.height/5
     }
     
     
