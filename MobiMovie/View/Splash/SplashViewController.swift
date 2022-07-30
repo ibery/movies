@@ -28,8 +28,8 @@ class SplashViewController : BaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1 ){
             
-        let storyboard = UIStoryboard(name: "MainScreen" , bundle: nil)
-        guard let viewController = storyboard.instantiateInitialViewController() else { return }
+        
+            guard let viewController = Storyboard.main.viewController else { return }
         self.navigationController?.show(viewController, sender: nil)
 
         }

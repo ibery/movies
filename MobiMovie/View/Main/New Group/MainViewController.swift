@@ -15,24 +15,27 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     
     // MARK: - Properties
     @IBOutlet var scrollView: UIScrollView!
+    
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var tableView: UITableView!
+    
     @IBOutlet var nowComingTitleLabel: UILabel!
+    
     @IBOutlet var nowComingOverviewLabel: UILabel!
     
-    
-
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         getUpComingData()
         getNowPlayingdata()
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.register(UINib(nibName: c.tableViewCell, bundle: nil), forCellReuseIdentifier: c.cellIdentifier)
-        pageControl.numberOfPages = moviesName.count
+
         scrollView.delegate = self
+        pageControl.numberOfPages = moviesName.count
+    //    setupScreens()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,11 +45,11 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
 
     // MARK: - Setup
     func setupScreens() {
+    
         for index in 0..<moviesName.count {
             frame.origin.x = scrollView.frame.size.width * CGFloat(index)
             frame.size = scrollView.frame.size
-            
-            let  imgView = UIImageView(frame: frame)
+            let imgView = UIImageView(frame: frame)
             imgView.isUserInteractionEnabled = true
             
             let recognizer = UITapGestureRecognizer(target: self, action: #selector(imageClick))
@@ -58,11 +61,12 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
             imgView.image =  UIImage(data: data!)
             imgView.addGestureRecognizer(recognizer)
             self.scrollView.addSubview(imgView)
+            
         }
         scrollView.contentSize = CGSize(width: (scrollView.frame.size.width * CGFloat(moviesName.count)), height: scrollView.frame.size.height)
         scrollView.delegate = self
+   
     }
-    
     // tap gesture recognizer
     @objc func imageClick() {
         let id = movieNowPlayingListModel.movieAtIndex(Int(scrollView.contentOffset.x / scrollView.frame.size.width)).id
@@ -76,8 +80,9 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = Int(pageNumber)
-  //      pageControl.frame = CGRect(x: 0, y: 0, width: view.frame.size.width / 2, height: view.frame.size.height / 2)
-        
+        nowComingTitleLabel.text = movieNowPlayingListModel.movieAtIndex(Int(pageNumber)).title
+        nowComingOverviewLabel.text = movieNowPlayingListModel.movieAtIndex(Int(pageNumber)).overview
+
     }
 
     // MARK: - Actions
@@ -93,17 +98,11 @@ class MainViewController :BaseViewController, UIScrollViewDelegate  {
         WebService().downloadMovieData(url: url) { nowPlayingMovieList in
             if let nowPlayingMovieList = nowPlayingMovieList {
                 self.movieNowPlayingListModel = MovieListModel (movieList : nowPlayingMovieList )
-                
-            }
-            
-            if let nowPlayingMovieList = nowPlayingMovieList {
                 for mv in nowPlayingMovieList{
                     self.moviesName.append(mv.backdrop_path ?? "")
-      
                 }
-                
                 DispatchQueue.main.async {
-                    self.setupScreens()
+                   self.setupScreens()
                 }
             }
         }
@@ -157,7 +156,7 @@ extension MainViewController : UITableViewDataSource {
 
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height/5
+        return tableView.frame.height/4.2
     }
     
     

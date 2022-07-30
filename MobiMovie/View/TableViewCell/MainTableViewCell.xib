@@ -30,22 +30,22 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bQY-5H-e9G">
-                                        <rect key="frame" x="130" y="10" width="249" height="137"/>
+                                        <rect key="frame" x="130" y="10" width="254" height="137"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="American Beauty (2013)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPu-fD-nf0">
-                                                <rect key="frame" x="0.0" y="0.0" width="249" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="254" height="45.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdalkf asşldk faşsdlk fşalsdk fşalsdk fşasdlk fşalk fd" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K31-V1-d99">
-                                                <rect key="frame" x="0.0" y="45.5" width="249" height="46"/>
+                                                <rect key="frame" x="0.0" y="45.5" width="254" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.05.2022" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ese-wL-mTp">
-                                                <rect key="frame" x="0.0" y="91.5" width="249" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="91.5" width="254" height="45.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -53,14 +53,15 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Arrow Icon" translatesAutoresizingMaskIntoConstraints="NO" id="ZEP-jb-YS6">
-                                        <rect key="frame" x="389" y="66" width="25" height="25"/>
+                                        <rect key="frame" x="394" y="68.5" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="25" id="o1M-xQ-7NN"/>
-                                            <constraint firstAttribute="width" secondItem="ZEP-jb-YS6" secondAttribute="height" multiplier="1:1" id="tui-6M-JCt"/>
+                                            <constraint firstAttribute="height" constant="20" id="gJy-HL-8iZ"/>
+                                            <constraint firstAttribute="width" constant="20" id="twn-Cn-fwh"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="ZEP-jb-YS6" firstAttribute="centerY" secondItem="pCh-If-lDn" secondAttribute="centerY" id="28v-pb-bAN"/>
                                     <constraint firstItem="bQY-5H-e9G" firstAttribute="top" secondItem="pCh-If-lDn" secondAttribute="top" constant="10" id="4U2-Oz-cuh"/>
                                     <constraint firstItem="m5g-Ha-CF8" firstAttribute="centerY" secondItem="pCh-If-lDn" secondAttribute="centerY" id="Ezi-Iu-dBM"/>
                                     <constraint firstAttribute="bottom" secondItem="m5g-Ha-CF8" secondAttribute="bottom" constant="10" id="LHd-oL-DQK"/>
