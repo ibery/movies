@@ -77,7 +77,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="sxW-iy-4CJ" firstAttribute="top" secondItem="Pir-HW-lC8" secondAttribute="top" id="1XY-Fd-ixW"/>
                                     <constraint firstItem="qwO-7j-4Lg" firstAttribute="centerY" secondItem="Pir-HW-lC8" secondAttribute="centerY" id="Aow-wr-6NE"/>
@@ -91,7 +91,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mmk-dh-D4K"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mmk-dh-D4K" firstAttribute="bottom" secondItem="Pir-HW-lC8" secondAttribute="bottom" constant="20" id="QNM-12-fvz"/>
                             <constraint firstItem="Pir-HW-lC8" firstAttribute="leading" secondItem="mmk-dh-D4K" secondAttribute="leading" constant="22" id="ZsF-Zi-Syv"/>
@@ -100,6 +100,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
